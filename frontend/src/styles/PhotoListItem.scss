@@ -46,3 +46,8 @@
 .photo-list__user-location {
   color: #838383;
 }
+
+// Added margin:0 style to fix user-info spacing
+.photo-list__user-info h3, .photo-list__user-info p {
+  margin: 0;
+}
