@@ -9,7 +9,6 @@ const PhotoFavButton = () => {
   // toggle the favourite state
   const toggleFav = () => {
     setIsFav((prev) => !prev);
-    console.log("Icon clicked! isFav is now:", !isFav); // Log for testing
   };
 
   return (
