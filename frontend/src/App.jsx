@@ -35,6 +35,9 @@ const App = () => {
     setClickedPhotoId(null);
   };
 
+  // Retrieve the complete photo object by its id
+  const clickedPhoto = clickedPhotoId ? photos.find(photo => photo.id === clickedPhotoId) : null;
+
   return (
     <div className="App">
       <HomeRoute
@@ -44,7 +47,7 @@ const App = () => {
         onToggleFavourite={toggleFavourite}
         onPhotoClick={handlePhotoClick}
       />
-      {clickedPhotoId && (<PhotoDetailsModal photoId={clickedPhotoId} closeModal={closeModal} />)}
+      {clickedPhotoId && (<PhotoDetailsModal photo={clickedPhoto} closeModal={closeModal} />)}
     </div>
   );
 };

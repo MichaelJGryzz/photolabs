@@ -5,7 +5,18 @@ import closeSymbol from '../assets/closeSymbol.svg';
 
 const PhotoDetailsModal = (props) => {
   // Destructure the props for easier access to properties
-  const { closeModal } = props; // Add photoId after to show specific photo details
+  const { photo, closeModal } = props;
+
+  // Destructure photo object for easier access to properties
+  const {
+    id,
+    urls: { full: imageSource },
+    user: { name, profile },
+    location
+  } = photo;
+
+  // Log photoId to the console (for now)
+  console.log(id, imageSource, name, profile, location);
 
   return (
     <div className="photo-details-modal">
