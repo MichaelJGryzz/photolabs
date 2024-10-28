@@ -1,20 +1,20 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-const PhotoFavButton = () => {
-  const [isFav, setIsFav] = useState(false);
+const PhotoFavButton = (props) => {
+  const { id, isFavourite, onToggleFavourite } = props;
 
-  // toggle the favourite state
-  const toggleFav = () => {
-    setIsFav((prev) => !prev);
+  // Link UI interaction to the global state
+  const handleToggle = () => {
+    onToggleFavourite(id);
   };
 
   return (
-    <div className="photo-list__fav-icon" onClick={toggleFav}>
+    <div className="photo-list__fav-icon" onClick={handleToggle}>
       <div className="photo-list__fav-icon-svg">
-        <FavIcon selected={isFav} displayAlert={false} />
+        <FavIcon selected={isFavourite} displayAlert={false} />
       </div>
     </div>
   );

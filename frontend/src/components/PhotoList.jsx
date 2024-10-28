@@ -8,7 +8,8 @@ import "../styles/PhotoList.scss";
 
 const PhotoList = (props) => {
   // Destructure the props for easier access to properties
-  const { photos } = props;
+  const { photos, favourites, onToggleFavourite } = props;
+  
   return (
     <ul className="photo-list">
       {photos.map(photo => (
@@ -19,6 +20,8 @@ const PhotoList = (props) => {
           imageSource={photo.urls.regular}
           username={photo.user.name}
           profile={photo.user.profile}
+          isFavourite={favourites.includes(photo.id)}
+          onToggleFavourite={onToggleFavourite}
         />
       ))}
     </ul>
