@@ -30,6 +30,11 @@ const App = () => {
     setClickedPhotoId(photoId);
   };
 
+  // Function to close the modal by updated the state to null
+  const closeModal = () => {
+    setClickedPhotoId(null);
+  };
+
   return (
     <div className="App">
       <HomeRoute
@@ -39,7 +44,7 @@ const App = () => {
         onToggleFavourite={toggleFavourite}
         onPhotoClick={handlePhotoClick}
       />
-      {clickedPhotoId && (<PhotoDetailsModal photoId={clickedPhotoId} />)}
+      {clickedPhotoId && (<PhotoDetailsModal photoId={clickedPhotoId} closeModal={closeModal} />)}
     </div>
   );
 };
