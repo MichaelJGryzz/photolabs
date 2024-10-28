@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import HomeRoute from 'components/HomeRoute';
+import HomeRoute from 'routes/HomeRoute.jsx';
 // import mock data
 import photos from './mocks/photos.js';
 import topics from './mocks/topics.js';
