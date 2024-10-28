@@ -6,11 +6,13 @@ import TopicList from './TopicList';
 import '../styles/TopNavigationBar.scss';
 
 
-const TopNavigation = () => {
+const TopNavigation = (props) => {
+  // Destructure the props for easier access to properties
+  const { topics } = props;
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
-      <TopicList />
+      <TopicList topics={topics}/>
       <FavBadge />
     </div>
   );

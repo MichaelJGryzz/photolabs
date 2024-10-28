@@ -7,11 +7,13 @@ import "../styles/HomeRoute.scss";
 
 
 
-const HomeRoute = () => {
+const HomeRoute = (props) => {
+  // Destructure the props for easier access to properties
+  const { photos, topics } = props;
   return (
     <div className="home-route">
-      <TopNavigation />
-      <PhotoList />
+      <TopNavigation topics={topics} />
+      <PhotoList photos={photos} />
     </div>
   );
 };
