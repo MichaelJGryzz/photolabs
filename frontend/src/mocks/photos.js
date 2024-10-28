@@ -185,7 +185,7 @@ const photo10 = {
 const photos = [
   {
     ...photo1,
-    similar_photos: {
+    similarPhotos: {
       photo2,
       photo3,
       photo4,
@@ -194,7 +194,7 @@ const photos = [
   },
   {
     ...photo2,
-    similar_photos: {
+    similarPhotos: {
       photo2,
       photo3,
       photo4,
@@ -203,7 +203,7 @@ const photos = [
   },
   {
     ...photo3,
-    similar_photos: {
+    similarPhotos: {
       photo2,
       photo3,
       photo4,
@@ -212,7 +212,7 @@ const photos = [
   },
   {
     ...photo4,
-    similar_photos: {
+    similarPhotos: {
       photo2,
       photo3,
       photo4,
@@ -221,7 +221,7 @@ const photos = [
   },
   {
     ...photo5,
-    similar_photos: {
+    similarPhotos: {
       photo2,
       photo3,
       photo4,
@@ -230,7 +230,7 @@ const photos = [
   },
   {
     ...photo6,
-    similar_photos: {
+    similarPhotos: {
       photo2,
       photo3,
       photo4,
@@ -239,7 +239,7 @@ const photos = [
   },
   {
     ...photo7,
-    similar_photos: {
+    similarPhotos: {
       photo2,
       photo3,
       photo4,
@@ -248,7 +248,7 @@ const photos = [
   },
   {
     ...photo8,
-    similar_photos: {
+    similarPhotos: {
       photo2,
       photo3,
       photo4,
@@ -257,7 +257,7 @@ const photos = [
   },
   {
     ...photo9,
-    similar_photos: {
+    similarPhotos: {
       photo2,
       photo3,
       photo4,
@@ -266,7 +266,7 @@ const photos = [
   },
   {
     ...photo10,
-    similar_photos: {
+    similarPhotos: {
       photo2,
       photo3,
       photo4,

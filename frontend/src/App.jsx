@@ -47,7 +47,14 @@ const App = () => {
         onToggleFavourite={toggleFavourite}
         onPhotoClick={handlePhotoClick}
       />
-      {clickedPhotoId && (<PhotoDetailsModal photo={clickedPhoto} closeModal={closeModal} />)}
+      {clickedPhotoId && (
+        <PhotoDetailsModal
+          photo={clickedPhoto}
+          closeModal={closeModal}
+          favourites={favourites}
+          isFavourite={favourites.includes(clickedPhotoId)}
+          onToggleFavourite={toggleFavourite}
+        />)}
     </div>
   );
 };

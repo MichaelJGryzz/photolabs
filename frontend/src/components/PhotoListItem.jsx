@@ -15,9 +15,9 @@ const PhotoListItem = (props) => {
       <PhotoFavButton
         id={id}
         isFavourite={isFavourite}
-        onToggleFavourite={onToggleFavourite}
+        onToggleFavourite={() => onToggleFavourite(id)}
       />
-      <img src={imageSource} className="photo-list__image" alt={`Photo by ${username}`} onClick={() => onPhotoClick(id)}/>
+      <img src={imageSource} className="photo-list__image" alt={`Photo by ${username}`} onClick={() => onPhotoClick && onPhotoClick(id)}/>
       <div className="photo-list__user-details">
         <img src={profile} className="photo-list__user-profile" alt={`${username}'s profile`} />
         <div className="photo-list__user-info">

@@ -7,8 +7,8 @@ import "../styles/PhotoList.scss";
 
 
 const PhotoList = (props) => {
-  // Destructure the props for easier access to properties
-  const { photos, favourites, onToggleFavourite, onPhotoClick } = props;
+  // Destructure the props for easier access to properties and provide a deafult value for 'favourites'
+  const { photos, favourites = [], onToggleFavourite, onPhotoClick = false } = props;
   
   return (
     <ul className="photo-list">
