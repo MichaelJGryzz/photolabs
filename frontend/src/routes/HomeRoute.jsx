@@ -9,7 +9,7 @@ import "../styles/HomeRoute.scss";
 
 const HomeRoute = (props) => {
   // Destructure the props for easier access to properties
-  const { photos, topics, favourites, onToggleFavourite } = props;
+  const { photos, topics, favourites, onToggleFavourite, onPhotoClick } = props;
   
   return (
     <div className="home-route">
@@ -18,6 +18,7 @@ const HomeRoute = (props) => {
         photos={photos}
         favourites={favourites}
         onToggleFavourite={onToggleFavourite}
+        onPhotoClick={onPhotoClick}
       />
     </div>
   );

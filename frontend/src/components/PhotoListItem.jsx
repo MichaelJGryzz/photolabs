@@ -8,7 +8,7 @@ import "../styles/PhotoListItem.scss";
 
 const PhotoListItem = (props) => {
   // Destructure the props for easier access to properties
-  const { id, imageSource, username, profile, location, isFavourite, onToggleFavourite } = props;
+  const { id, imageSource, username, profile, location, isFavourite, onToggleFavourite, onPhotoClick } = props;
 
   return (
     <div className="photo-list__item">
@@ -17,7 +17,7 @@ const PhotoListItem = (props) => {
         isFavourite={isFavourite}
         onToggleFavourite={onToggleFavourite}
       />
-      <img src={imageSource} className="photo-list__image" alt={`Photo by ${username}`} />
+      <img src={imageSource} className="photo-list__image" alt={`Photo by ${username}`} onClick={() => onPhotoClick(id)}/>
       <div className="photo-list__user-details">
         <img src={profile} className="photo-list__user-profile" alt={`${username}'s profile`} />
         <div className="photo-list__user-info">

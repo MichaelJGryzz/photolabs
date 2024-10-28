@@ -8,7 +8,7 @@ import "../styles/PhotoList.scss";
 
 const PhotoList = (props) => {
   // Destructure the props for easier access to properties
-  const { photos, favourites, onToggleFavourite } = props;
+  const { photos, favourites, onToggleFavourite, onPhotoClick } = props;
   
   return (
     <ul className="photo-list">
@@ -22,6 +22,7 @@ const PhotoList = (props) => {
           profile={photo.user.profile}
           isFavourite={favourites.includes(photo.id)}
           onToggleFavourite={onToggleFavourite}
+          onPhotoClick={onPhotoClick}
         />
       ))}
     </ul>
