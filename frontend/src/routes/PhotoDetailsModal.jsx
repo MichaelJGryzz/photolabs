@@ -42,7 +42,7 @@ const PhotoDetailsModal = (props) => {
         </div>
         {similarPhotos && (
           <div className="photo-details-modal__similar-photos">
-            <h3>Similar Photos</h3>
+            <h3>Related Photos</h3>
             <PhotoList
               photos={similarPhotosArray}
               favourites={favourites}
