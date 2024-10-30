@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import { useReducer, useEffect } from 'react';
 
 
 // Insert app actions below
@@ -6,11 +6,23 @@ export const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
   SELECT_PHOTO: 'SELECT_PHOTO',
-  CLOSE_MODAL: 'CLOSE_MODAL'
+  CLOSE_MODAL: 'CLOSE_MODAL',
+  SET_PHOTO_DATA: 'SET_PHOTO_DATA',
+  SET_TOPIC_DATA: 'SET_TOPIC_DATA'
 };
 
 const reducer = function(state, action) {
   switch (action.type) {
+  case ACTIONS.SET_PHOTO_DATA:
+    return {
+      ...state,
+      photoData: action.payload
+    };
+  case ACTIONS.SET_TOPIC_DATA:
+    return {
+      ...state,
+      topicData: action.payload
+    };
   case ACTIONS.FAV_PHOTO_ADDED:
     return {
       ...state,
@@ -42,8 +54,26 @@ const reducer = function(state, action) {
 const useApplicationData = () => {
   const [state, dispatch] = useReducer(reducer, {
     favourites: [], // Initialize state to keep track of favourited photos
-    clickedPhotoId: null // Initialize state to keep track of clicked photo's Id
+    clickedPhotoId: null, // Initialize state to keep track of clicked photo's Id
+    photoData: [], // Initialize state for photo data
+    topicData: [] // Initialize state for topic data
   });
+
+  // useEffect hook to fetch the photo data from the API
+  useEffect(() => {
+    fetch("/api/photos")
+      .then((response) => response.json())
+      .then((data) => dispatch({ type:ACTIONS.SET_PHOTO_DATA, payload: data }))
+      .catch((error) => console.error("Error fetching photos:", error));
+  }, []);
+
+  // useEffect hook to fetch the topic data from the API
+  useEffect(() => {
+    fetch("/api/topics")
+      .then((response) => response.json())
+      .then((data) => dispatch({ type:ACTIONS.SET_TOPIC_DATA, payload: data }))
+      .catch((error) => console.error("Error fetching topics:", error));
+  }, []);
 
   // Function to toggle favourite status for a favourited photo
   const toggleFavourite = (photoId) => {

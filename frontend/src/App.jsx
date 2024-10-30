@@ -2,9 +2,6 @@ import React from 'react';
 
 import HomeRoute from 'routes/HomeRoute.jsx';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal.jsx';
-// Import mock data
-import photos from './mocks/photos.js';
-import topics from './mocks/topics.js';
 // Import custom hook
 import useApplicationData from 'hooks/useApplicationData.js';
 
@@ -22,13 +19,13 @@ const App = () => {
   } = useApplicationData();
 
   // Retrieve the complete photo object by its id
-  const clickedPhoto = state.clickedPhotoId ? photos.find(photo => photo.id === state.clickedPhotoId) : null;
+  const clickedPhoto = state.clickedPhotoId ? state.photoData.find(photo => photo.id === state.clickedPhotoId) : null;
 
   return (
     <div className="App">
       <HomeRoute
-        photos={photos}
-        topics={topics}
+        photos={state.photoData}
+        topics={state.topicData}
         favourites={state.favourites}
         onToggleFavourite={toggleFavourite}
         onPhotoClick={handlePhotoClick}

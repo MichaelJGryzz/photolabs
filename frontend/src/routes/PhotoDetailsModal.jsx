@@ -15,11 +15,11 @@ const PhotoDetailsModal = (props) => {
     urls: { full: imageSource },
     user: { name, profile },
     location,
-    similarPhotos
+    similar_photos
   } = photo;
 
   // Convert similar_photos from object to array
-  const similarPhotosArray = Object.values(similarPhotos);
+  const similarPhotosArray = Object.values(similar_photos);
 
   return (
     <div className="photo-details-modal">
@@ -40,7 +40,7 @@ const PhotoDetailsModal = (props) => {
             <p className="photo-list__user-location">{`${location.city}, ${location.country}`}</p>
           </div>
         </div>
-        {similarPhotos && (
+        {similar_photos && (
           <div className="photo-details-modal__similar-photos">
             <h3>Related Photos</h3>
             <PhotoList
