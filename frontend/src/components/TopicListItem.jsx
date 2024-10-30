@@ -6,10 +6,10 @@ import "../styles/TopicListItem.scss";
 
 const TopicListItem = (props) => {
   // Destructure the props for easier access to properties
-  const { label } = props;
+  const { label, id, onTopicClick } = props;
 
   return (
-    <div className="topic-list__item">
+    <div className="topic-list__item" onClick={() => onTopicClick(id)}>
       <span>{label}</span>
     </div>
   );

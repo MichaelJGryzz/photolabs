@@ -16,6 +16,7 @@ const App = () => {
     toggleFavourite,
     handlePhotoClick,
     closeModal,
+    fetchPhotosByTopic,
   } = useApplicationData();
 
   // Retrieve the complete photo object by its id
@@ -29,6 +30,7 @@ const App = () => {
         favourites={state.favourites}
         onToggleFavourite={toggleFavourite}
         onPhotoClick={handlePhotoClick}
+        onTopicClick={fetchPhotosByTopic}
       />
       {state.clickedPhotoId && (
         <PhotoDetailsModal

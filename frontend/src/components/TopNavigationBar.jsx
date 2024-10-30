@@ -8,7 +8,7 @@ import '../styles/TopNavigationBar.scss';
 
 const TopNavigation = (props) => {
   // Destructure the props for easier access to properties
-  const { topics, favourites } = props;
+  const { topics, favourites, onTopicClick } = props;
 
   // Determine if there re any favourited photos
   const isFavPhotoExist = favourites && favourites.length > 0;
@@ -16,7 +16,7 @@ const TopNavigation = (props) => {
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
-      <TopicList topics={topics} />
+      <TopicList topics={topics} onTopicClick={onTopicClick}/>
       <FavBadge isFavPhotoExist={isFavPhotoExist} />
     </div>
   );

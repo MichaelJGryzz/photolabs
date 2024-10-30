@@ -43,6 +43,11 @@ const reducer = function(state, action) {
       ...state,
       clickedPhotoId: null
     };
+  case ACTIONS.GET_PHOTOS_BY_TOPICS:
+    return {
+      ...state,
+      photoData: action.payload
+    };
   default:
     throw new Error(
       `Tried to reduce with unsupported action type: ${action.type}`
@@ -56,7 +61,7 @@ const useApplicationData = () => {
     favourites: [], // Initialize state to keep track of favourited photos
     clickedPhotoId: null, // Initialize state to keep track of clicked photo's Id
     photoData: [], // Initialize state for photo data
-    topicData: [] // Initialize state for topic data
+    topicData: [], // Initialize state for topic data
   });
 
   // useEffect hook to fetch the photo data from the API
@@ -92,11 +97,22 @@ const useApplicationData = () => {
     dispatch({ type: ACTIONS.CLOSE_MODAL });
   };
 
+  // Function to fetch photos by topic id
+  const fetchPhotosByTopic = (topicId) => {
+    fetch(`/api/topics/photos/${topicId}`)
+      .then((response) => response.json())
+      .then((data) => dispatch({ type:ACTIONS.GET_PHOTOS_BY_TOPICS, payload: data }))
+      .catch((error) => console.error(`Error fetching photos for topic ${topicId}:`, error));
+  };
+
+
+
   return {
     state,
     toggleFavourite,
     handlePhotoClick,
-    closeModal
+    closeModal,
+    fetchPhotosByTopic
   };
 };
 
