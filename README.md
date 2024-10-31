@@ -28,7 +28,17 @@ npm start
 
 ## Screenshots
 
-<!-- !["Screenshot of tweets - desktop screen"](https://github.com/MichaelJGryzz/tweeter/blob/master/docs/tweeter-tweets-desktop-style.png?raw=true) -->
+Homepage:
+!["Screenshot of PhotoLabs - homepage"](https://github.com/MichaelJGryzz/photolabs/blob/main/docs/PhotoLabs-homepage.png)
+
+Homepage with favourited photos showcasing favourite notifcation in top navigation bar:
+!["Screenshot of PhotoLabs - homepage with favourited photos"](https://github.com/MichaelJGryzz/photolabs/blob/main/docs/PhotoLabs-homepage-with-likes.png)
+
+Nature topic photos only:
+!["Screenshot of PhotoLabs - nature topic photos only"](https://github.com/MichaelJGryzz/photolabs/blob/main/docs/PhotoLabs-nature-topic-photos.png)
+
+Large photo view with related photos:
+!["Screenshot of PhotoLabs - large photo view with related photos"](https://github.com/MichaelJGryzz/photolabs/blob/main/docs/PhotoLabs-photo-large-view-with-related.png)
 
 ## Dependencies
 
