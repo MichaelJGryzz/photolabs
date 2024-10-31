@@ -7,7 +7,7 @@ import PhotoList from 'components/PhotoList';
 
 const PhotoDetailsModal = (props) => {
   // Destructure the props for easier access to properties
-  const { photo, closeModal, favourites, isFavourite, onToggleFavourite } = props;
+  const { photo, closeSelectedPhotosModal, favourites, isFavourite, onToggleFavourite } = props;
 
   // Destructure photo object for easier access to properties
   const {
@@ -23,7 +23,7 @@ const PhotoDetailsModal = (props) => {
 
   return (
     <div className="photo-details-modal">
-      <button className="photo-details-modal__close-button" onClick={closeModal}>
+      <button className="photo-details-modal__close-button" onClick={closeSelectedPhotosModal}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
       <div className="photo-details-modal__images">

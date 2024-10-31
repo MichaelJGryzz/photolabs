@@ -6,9 +6,12 @@ export const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
   SELECT_PHOTO: 'SELECT_PHOTO',
-  CLOSE_MODAL: 'CLOSE_MODAL',
+  CLOSE_SELECTED_PHOTOS_MODAL: 'CLOSE_SELECTED_PHOTOS_MODAL',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
-  SET_TOPIC_DATA: 'SET_TOPIC_DATA'
+  SET_TOPIC_DATA: 'SET_TOPIC_DATA',
+  GET_PHOTOS_BY_TOPICS: 'GET_PHOTO_BY_TOPICS',
+  OPEN_FAVED_PHOTOS_MODAL: 'OPEN_FAVED_PHOTOS_MODAL',
+  CLOSE_FAVED_PHOTOS_MODAL: 'CLOSE_FAVED_PHOTOS_MODAL'
 };
 
 const reducer = function(state, action) {
@@ -38,7 +41,7 @@ const reducer = function(state, action) {
       ...state,
       clickedPhotoId: action.payload.id
     };
-  case ACTIONS.CLOSE_MODAL:
+  case ACTIONS.CLOSE_SELECTED_PHOTOS_MODAL:
     return {
       ...state,
       clickedPhotoId: null
@@ -47,6 +50,16 @@ const reducer = function(state, action) {
     return {
       ...state,
       photoData: action.payload
+    };
+  case ACTIONS.OPEN_FAVED_PHOTOS_MODAL:
+    return {
+      ...state,
+      favedPhotosModalOpen: true
+    };
+  case ACTIONS.CLOSE_FAVED_PHOTOS_MODAL:
+    return {
+      ...state,
+      favedPhotosModalOpen: false
     };
   default:
     throw new Error(
@@ -62,6 +75,7 @@ const useApplicationData = () => {
     clickedPhotoId: null, // Initialize state to keep track of clicked photo's Id
     photoData: [], // Initialize state for photo data
     topicData: [], // Initialize state for topic data
+    favedPhotosModalOpen: false // Initialize state for the faved photos modal
   });
 
   // useEffect hook to fetch the photo data from the API
@@ -93,8 +107,8 @@ const useApplicationData = () => {
   };
 
   // Function to close the modal by updated the state to null
-  const closeModal = () => {
-    dispatch({ type: ACTIONS.CLOSE_MODAL });
+  const closeSelectedPhotosModal = () => {
+    dispatch({ type: ACTIONS.CLOSE_SELECTED_PHOTOS_MODAL });
   };
 
   // Function to fetch photos by topic id
@@ -105,14 +119,20 @@ const useApplicationData = () => {
       .catch((error) => console.error(`Error fetching photos for topic ${topicId}:`, error));
   };
 
+  // Helper function to open faved photos modal
+  const openFavedPhotosModal = () => dispatch({ type: ACTIONS.OPEN_FAVED_PHOTOS_MODAL });
 
+  // Helper function to close faved photos modal
+  const closeFavedPhotosModal = () => dispatch({ type: ACTIONS.CLOSE_FAVED_PHOTOS_MODAL });
 
   return {
     state,
     toggleFavourite,
     handlePhotoClick,
-    closeModal,
-    fetchPhotosByTopic
+    closeSelectedPhotosModal,
+    fetchPhotosByTopic,
+    openFavedPhotosModal,
+    closeFavedPhotosModal
   };
 };
 
